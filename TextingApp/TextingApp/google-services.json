@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "100903805577",
+    "firebase_url": "https://distsystemsmessenger.firebaseio.com",
+    "project_id": "distsystemsmessenger",
+    "storage_bucket": "distsystemsmessenger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100903805577:android:53f6871922eb33be",
+        "android_client_info": {
+          "package_name": "TextingApp.TextingApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100903805577-b7skjvmr3o6su456tq81mf9md1jlvqtd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdhAHNIZcjrkxreU_HEctnZj43Er7kaUw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
