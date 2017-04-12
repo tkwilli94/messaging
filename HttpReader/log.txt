@@ -1,0 +1,6 @@
+Apr 11, 2017 2:24:23 PM Server run
+INFO: Initializing Model
+Apr 11, 2017 2:24:23 PM Server run
+INFO: Initializing HTTP Server on port 3040
+Apr 11, 2017 2:24:23 PM Server run
+INFO: Starting HTTP Server.
