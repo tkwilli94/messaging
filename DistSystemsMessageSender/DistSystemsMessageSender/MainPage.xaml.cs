@@ -33,6 +33,7 @@ namespace DistSystemsMessageSender
             contacts.Add(new DistSystemsMessageSender.Contact("Michael", "8016087747"));
             contacts.Add(new DistSystemsMessageSender.Contact("Tommy", "5033330685"));
 
+            contacts.ElementAt(0).messages.Add(new Message("Michael", "Hey there, partner!", new DateTime(2017, 4, 13, 15, 53, 23)));
             //contactList.DisplayMemberPath = "name";
             //contactList.Val
             //contactList.Items.Add(new DistSystemsMessageSender.Contact("Michael", "8016087747"));
