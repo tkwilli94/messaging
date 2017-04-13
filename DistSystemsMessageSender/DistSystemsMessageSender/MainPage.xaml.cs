@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,35 @@ namespace DistSystemsMessageSender
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        List<Contact> contacts = new List<Contact>();
+
         public MainPage()
         {
             this.InitializeComponent();
+
+
+            contacts.Add(new DistSystemsMessageSender.Contact("Michael", "8016087747"));
+            contacts.Add(new DistSystemsMessageSender.Contact("Tommy", "5033330685"));
+
+            //contactList.DisplayMemberPath = "name";
+            //contactList.Val
+            //contactList.Items.Add(new DistSystemsMessageSender.Contact("Michael", "8016087747"));
+        }
+
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+
+        }
+
+        private void contactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Contact selectedContact = (Contact)contactList.SelectedItem;
+
+            Debug.WriteLine("The selected contact is " + selectedContact.Name);
+            contactName.Text = selectedContact.Name;
+
+            //display that contact's messages
+            contactMessages.ItemsSource = selectedContact.messages;
         }
     }
 }

@@ -8,6 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <ListBox x:Name="contactList" ItemsSource="{x:Bind contacts}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="618" BorderThickness="2" BorderBrush="Black" SelectionMode="Single" SelectionChanged="contactList_SelectionChanged"/>
+        <TextBlock x:Name="contactName" HorizontalAlignment="Left" Margin="623,10,0,0" TextWrapping="Wrap" Text="{Binding }" VerticalAlignment="Top" Height="105" Width="1287"/>
+        <ListBox x:Name="contactMessages" HorizontalAlignment="Center" Height="838" Margin="623,115,0,127" VerticalAlignment="Center" Width="1297" BorderThickness="2" BorderBrush="Black"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="623,958,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="-0.17,-0.452" Height="122" Width="1297"/>
     </Grid>
 </Page>
