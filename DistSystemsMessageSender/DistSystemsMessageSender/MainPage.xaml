@@ -5,12 +5,82 @@
     xmlns:local="using:DistSystemsMessageSender"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Height="720" Width="1280">
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox x:Name="contactList" ItemsSource="{x:Bind contacts}" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="618" BorderThickness="2" BorderBrush="Black" SelectionMode="Single" SelectionChanged="contactList_SelectionChanged"/>
-        <TextBlock x:Name="contactName" HorizontalAlignment="Left" Margin="623,10,0,0" TextWrapping="Wrap" Text="{Binding }" VerticalAlignment="Top" Height="105" Width="1287"/>
-        <ListBox x:Name="contactMessages" HorizontalAlignment="Center" Height="838" Margin="623,115,0,127" VerticalAlignment="Center" Width="1297" BorderThickness="2" BorderBrush="Black"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="623,958,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="-0.17,-0.452" Height="122" Width="1297"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="contactList" 
+                 ItemsSource="{x:Bind contacts, Mode=OneWay}" 
+                 DisplayMemberPath="Name" 
+                 HorizontalAlignment="Left" 
+                 Height="710" 
+                 VerticalAlignment="Top" 
+                 Width="433" 
+                 BorderThickness="2" 
+                 BorderBrush="Black" 
+                 SelectionMode="Single" 
+                 SelectedValuePath="contacts[0]"
+                 SelectionChanged="contactList_SelectionChanged"/>
+        <TextBlock x:Name="contactName" 
+                   HorizontalAlignment="Left" 
+                   Margin="443,10,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Select a Contact" 
+                   FontSize="30"
+                   VerticalAlignment="Top" 
+                   Height="56" 
+                   Width="837" 
+                   Grid.ColumnSpan="2"/>
+        <ListView x:Name="contactMessages" 
+                  ItemsSource="{x:Bind selectedContact.messages, Mode=OneWay}" 
+                  HorizontalAlignment="Center" 
+                  Height="517" 
+                  Margin="443,71,10,132" 
+                  VerticalAlignment="Center" 
+                  Width="827" 
+                  BorderThickness="2" 
+                  BorderBrush="Black" 
+                  Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding senderName}"
+                                   Margin="20,0,20,8"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Foreground="DarkBlue" />
+                        <TextBlock Text="{Binding body}"
+                                   Margin="20,0,20,8"
+                                   FontSize="20"
+                                   Foreground="Black" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox x:Name="textBox" 
+                 Margin="443,593,119,0" 
+                 TextWrapping="Wrap" 
+                 Text="Enter message here" 
+                 Opacity="70"
+                 VerticalAlignment="Top" 
+                 RenderTransformOrigin="-0.17,-0.452" 
+                 Height="117" 
+                 Grid.ColumnSpan="2"
+                 GotFocus="textBox_GotFocus"
+                 LostFocus="textBox_LostFocus"/>
+        <Button x:Name="sendButton" 
+                Content="Send" 
+                HorizontalAlignment="Left" 
+                Margin="86,593,0,0" 
+                VerticalAlignment="Top" 
+                Height="117" 
+                Width="99" 
+                Click="sendButton_Click" 
+                Grid.Column="1"/>
     </Grid>
 </Page>
