@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,13 @@ namespace DistSystemsMessageSender
     {
         public String Name { get; set; }
         public String phnum { get; set; }
-        public List<Message> messages { get; set; }
+        public ObservableCollection<Message> messages { get; set; }
 
         public Contact(String name, String phnum)
         {
             this.Name = name;
             this.phnum = phnum;
-            messages = new List<Message>();
+            messages = new ObservableCollection<Message>();
         }
 
         //maybe a constructor that creates Contacts from a json string
