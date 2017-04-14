@@ -10,13 +10,13 @@ namespace DistSystemsMessageSender
     class Contact
     {
         public String Name { get; set; }
-        public String phnum { get; set; }
+        public String phone { get; set; }
         public ObservableCollection<Message> messages { get; set; }
 
-        public Contact(String name, String phnum)
+        public Contact(String name, String phone)
         {
             this.Name = name;
-            this.phnum = phnum;
+            this.phone = phone;
             messages = new ObservableCollection<Message>();
         }
 

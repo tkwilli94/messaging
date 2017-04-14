@@ -8,10 +8,6 @@
     mc:Ignorable="d"
     Height="720" Width="1280">
 
-    <!--<Page.Resources>
-        <CollectionViewSource Source="{x:Bind selectectContact.messages}" 
-                              x:Key="cvs" />
-    </Page.Resources>-->
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -53,7 +49,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding sender}"
+                        <TextBlock Text="{Binding senderName}"
                                    Margin="20,0,20,8"
                                    FontSize="16"
                                    FontWeight="SemiBold"

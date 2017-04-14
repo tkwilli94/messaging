@@ -102,6 +102,8 @@ namespace DistSystemsMessageSender
         {
             String notificationContent = String.Empty;
 
+            Frame frame = Window.Current.Content as Frame;
+
             switch (e.NotificationType)
             {
                 case PushNotificationType.Badge:
@@ -118,6 +120,8 @@ namespace DistSystemsMessageSender
 
                 case PushNotificationType.Raw:
                     notificationContent = e.RawNotification.Content;
+                    var page = (MainPage)frame.Content;
+                    page.addMessage(notificationContent);
                     break;
             }
    
