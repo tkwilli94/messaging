@@ -56,14 +56,14 @@
     <Reference Include="Branch-Xamarin-SDK.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Branch-Xamarin-Linking-SDK.3.0.7\lib\MonoAndroid\Branch-Xamarin-SDK.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Apis.Core, Version=1.24.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Core.1.24.1\lib\netstandard1.3\Google.Apis.Core.dll</HintPath>
+    <Reference Include="Google.Apis.Core, Version=1.22.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.22.0\lib\netstandard1.3\Google.Apis.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="MyBroadcastReceiver.cs" />
     <Compile Include="MyFirebaseIIDService.cs" />
     <Compile Include="MyFirebaseMessagingService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

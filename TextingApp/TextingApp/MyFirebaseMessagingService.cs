@@ -6,6 +6,9 @@ using Android.Util;
 using Firebase.Messaging;
 using Android.Telephony;
 using Android.Provider;
+using Android.Runtime;
+using Android.Widget;
+using System.Text;
 
 namespace TextingApp
 {
@@ -18,8 +21,8 @@ namespace TextingApp
         {
             Log.Debug(TAG, "From: " + message.From);
             var notification = message.GetNotification();
-           // Log.Debug(TAG, "Notification Message Title: " + notification.Title);
-           // Log.Debug(TAG, "Notification Message Body: " + notification.Body);
+            // Log.Debug(TAG, "Notification Message Title: " + notification.Title);
+            // Log.Debug(TAG, "Notification Message Body: " + notification.Body);
             foreach (var pair in message.Data)
             {
                 var phNum = pair.Key;

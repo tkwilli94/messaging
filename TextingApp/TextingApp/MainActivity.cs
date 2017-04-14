@@ -13,6 +13,7 @@ using Firebase.Messaging;
 using Firebase.Iid;
 using Android.Util;
 using System.Threading;
+using Android.Content;
 
 namespace TextingApp
 {
@@ -21,6 +22,7 @@ namespace TextingApp
     {
         const string TAG = "MainActivity";
         TextView msgText;
+        private MyBroadcastReceiver smsReceiver;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -57,6 +59,8 @@ namespace TextingApp
                 Log.Debug(TAG, "Subscribed to remote notifications");
             };
 
+            smsReceiver = new MyBroadcastReceiver();
+            RegisterReceiver(smsReceiver, new IntentFilter("android.provider.Telephony.SMS_RECEIVED"));
             /*
             var uri = ContactsContract.CommonDataKinds.Callable.ContentUri;
             
