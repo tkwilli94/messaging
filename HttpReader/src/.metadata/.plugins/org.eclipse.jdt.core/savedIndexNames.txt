@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+C:\Users\Michael\Documents\2017 Winter\cs462\messaging\HttpReader\src\.metadata\.plugins\org.eclipse.jdt.core

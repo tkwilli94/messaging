@@ -80,19 +80,27 @@ namespace DistSystemsMessageSender
 
         private async void InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-
-            var hub = new NotificationHub("DistSystemsNotifications", "Endpoint=sb://distsystemsnotifications-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=BS1z8panbcYaogf7/uu1sEUPkXufLzeKNzMYPVLR+Io=");
-            var result = await hub.RegisterNativeAsync(channel.Uri);
-
-            channel.PushNotificationReceived += OnPushNotification;
-
-            // Displays the registration ID so you know it was successful
-            if (result.RegistrationId != null)
+            try
             {
-                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
+                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+                var hub = new NotificationHub("DistSystemsNotifications", "Endpoint=sb://distsystemsnotifications-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=BS1z8panbcYaogf7/uu1sEUPkXufLzeKNzMYPVLR+Io=");
+                var result = await hub.RegisterNativeAsync(channel.Uri);
+
+                channel.PushNotificationReceived += OnPushNotification;
+
+                // Displays the registration ID so you know it was successful
+                if (result.RegistrationId != null)
+                {
+                    var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+                    dialog.Commands.Add(new UICommand("OK"));
+                    await dialog.ShowAsync();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
             }
 
         }
@@ -101,7 +109,7 @@ namespace DistSystemsMessageSender
         private async void OnPushNotification(PushNotificationChannel sender, PushNotificationReceivedEventArgs e)
         {
             String notificationContent = String.Empty;
-
+            Console.WriteLine("OnPushNotification was called");
             Frame frame = Window.Current.Content as Frame;
 
             switch (e.NotificationType)

@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -62,6 +64,26 @@ namespace DistSystemsMessageSender
             return false;
         }
 
+        public async void loadMessagesAndContacts()
+        {
+            HttpClient client = new HttpClient();
+
+            //URL of the server
+            string url = @"http://35.161.246.179:3040/load";
+
+            string json = await client.GetStringAsync(url);
+
+            //get json from server
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            //request.AutomaticDecompression = DecompressionMethods.GZip;
+
+
+            Contact[] contactArray = JsonConvert.DeserializeObject<Contact[]>(json);
+            List<Contact> contactsFromServer = contactArray.ToList();
+
+            contactList.ItemsSource = contactsFromServer;
+        }
+
         private void initFields()
         {
             contacts.Add(new DistSystemsMessageSender.Contact("Michael", "8016087747"));
@@ -75,6 +97,8 @@ namespace DistSystemsMessageSender
 
             //contactList.SelectedIndex = 1;
             //selectedContact = contacts.ElementAt(0);
+
+            loadMessagesAndContacts();
         }
 
         private void contactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
